@@ -1,17 +1,17 @@
 <div class="wrapper">
   <h6>PRODUCT DETAILS SECTION</h6>
-  <div>Name: {{name}}</div>
-  <div>Description: {{description}}</div>
-  <div>Price: {{price}}</div>
-  <div>Category: {{category}}</div>
-  <div>Available: {{isAvailable}}</div>
+  <div>Name: {{product.name}}</div>
+  <div>Description: {{product.description}}</div>
+  <div>Price: {{product.price}}</div>
+  <div>Category: {{product.category}}</div>
+  <div>Available: {{product.isAvailable}}</div>
   <br/>
-  <b>Ingredients:</b>
+  <b *ngIf='product.ingredients.length'>Ingredients:</b>
   <ul>
-    <li *ngFor='let ingredient of ingredients'>{{ingredient}}</li>
+    <li *ngFor='let ingredient of product.ingredients'>{{ingredient}}</li>
   </ul>
-  <b>Similar products:</b>
+  <b *ngIf='product.equivalents.length'>Similar products:</b>
   <ul>
-    <li *ngFor='let equivalent of equivalents'>{{equivalent}}</li>
+    <li *ngFor='let equivalent of product.equivalents'>{{equivalent}}</li>
   </ul>
 </div>
