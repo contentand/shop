@@ -5,4 +5,13 @@
   <div>Price: {{price}}</div>
   <div>Category: {{category}}</div>
   <div>Available: {{isAvailable}}</div>
+  <br/>
+  <b>Ingredients:</b>
+  <ul>
+    <li *ngFor='let ingredient of ingredients'>{{ingredient}}</li>
+  </ul>
+  <b>Similar products:</b>
+  <ul>
+    <li *ngFor='let equivalent of equivalents'>{{equivalent}}</li>
+  </ul>
 </div>

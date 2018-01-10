@@ -13,6 +13,8 @@ export class ProductComponent implements OnInit {
   price: number;
   category: Category;
   isAvailable: boolean;
+  ingredients: string[];
+  equivalents: string[];
 
   constructor() { }
 
@@ -22,6 +24,8 @@ export class ProductComponent implements OnInit {
     this.price = 99.99;
     this.category = Category.Category1;
     this.isAvailable = true;
+    this.ingredients = ['Awesome Substance', 'Great ingredient', 'Secret ingredient'];
+    this.equivalents = ['Product FX', 'Product FY'];
   }
 
 }
