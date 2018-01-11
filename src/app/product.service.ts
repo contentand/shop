@@ -20,6 +20,10 @@ export class ProductService {
       {
         name: 'Product 3', description: 'Scary widget', price: 56.25, category: Category.Category2,
         isAvailable: true, ingredients: ['coper', 'wood', 'plastic'], equivalents: ['Product FX', 'Product SX']
+      },
+      {
+        name: 'Product 4', description: 'Unique rare widget', price: 52999.99, category: Category.Category2,
+        isAvailable: false, ingredients: ['platinum', 'gold', 'silver'], equivalents: []
       }
     ];
   }
