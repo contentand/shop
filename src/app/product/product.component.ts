@@ -14,6 +14,8 @@ export class ProductComponent implements OnInit {
   product: Product;
   @Input('isPurchasable')
   isPurchasable: boolean;
+  @Input('isCartRemovalble')
+  isCartRemovalble: boolean;
 
   constructor(private cartService: CartService) { }
 
@@ -22,6 +24,10 @@ export class ProductComponent implements OnInit {
   onBuy(): void {
     console.log('Product purchased!');
     this.cartService.addToCart(this.product);
+  }
+
+  onRemove(): void {
+    this.cartService.removeFromCart(this.product);
   }
 
 }

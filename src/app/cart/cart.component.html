@@ -1,6 +1,6 @@
 <div *ngIf='cart.products.length'>
   <h2>Your Cart Contains:</h2>
   <hr/>
-  <app-product *ngFor='let product of cart.products' [product]='product'></app-product>
+  <app-product *ngFor='let product of cart.products' [product]='product' [isCartRemovalble]='true'></app-product>
   <hr/>
 </div>

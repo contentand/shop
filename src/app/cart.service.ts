@@ -17,4 +17,13 @@ export class CartService {
     this.cart.products.push(product);
   }
 
+  removeFromCart(product: Product): void {
+    const index = this.cart.products.indexOf(product, 0);
+    if (index > -1) {
+      this.cart.products.splice(index, 1);
+    } else {
+      alert('Cart has no product ' + product);
+    }
+  }
+
 }
