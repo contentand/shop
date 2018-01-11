@@ -14,4 +14,5 @@
   <ul>
     <li *ngFor='let equivalent of product.equivalents'>{{equivalent}}</li>
   </ul>
+  <button *ngIf='isPurchasable' (click)='onBuy()'>Buy</button>
 </div>
