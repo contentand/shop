@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,  EventEmitter } from '@angular/core';
 import { Category } from '../category';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
@@ -17,17 +17,20 @@ export class ProductComponent implements OnInit {
   @Input('isCartRemovalble')
   isCartRemovalble: boolean;
 
-  constructor(private cartService: CartService) { }
+  @Output() addToCart = new EventEmitter<Product>();
+  @Output() removeFromCart = new EventEmitter<Product>();
+
+  constructor() { }
 
   ngOnInit() { }
 
   onBuy(): void {
     console.log('Product purchased!');
-    this.cartService.addToCart(this.product);
+    this.addToCart.emit(this.product);
   }
 
   onRemove(): void {
-    this.cartService.removeFromCart(this.product);
+    this.removeFromCart.emit(this.product);
   }
 
 }
