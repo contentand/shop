@@ -1,0 +1,4 @@
+<app-product [product]='cartItem.product'></app-product>
+<span>Quantity:</span><input #quantity type="number" [value]='cartItem.quantity'></input>
+<button (click)='updateQuantity(quantity.value)'>Update Quantity</button>
+<button (click)='removeCartItem()'>Remove From Cart</button>

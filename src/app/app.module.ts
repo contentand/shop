@@ -8,6 +8,7 @@ import { ProductService } from './service/product.service';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { CartComponent } from './component/cart/cart.component';
 import { CartService } from './service/cart.service';
+import { CartItemComponent } from './component/cart-item/cart-item.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CartService } from './service/cart.service';
     AppComponent,
     ProductComponent,
     ProductListComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule
