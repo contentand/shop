@@ -9,22 +9,11 @@ export class ProductService {
 
   getProducts(): Product[] {
     return [
-      {
-        name: 'Product 1', description: 'Awesome gadget', price: 23.75, category: Category.Category1,
-        isAvailable: true, ingredients: ['iron', 'plastic'], equivalents: []
-      },
-      {
-        name: 'Product 2', description: 'Most beautiful gadget', price: 823.99, category: Category.Category1,
-        isAvailable: true, ingredients: ['gold', 'glass'], equivalents: ['iPhone XS']
-      },
-      {
-        name: 'Product 3', description: 'Scary widget', price: 56.25, category: Category.Category2,
-        isAvailable: true, ingredients: ['coper', 'wood', 'plastic'], equivalents: ['Product FX', 'Product SX']
-      },
-      {
-        name: 'Product 4', description: 'Unique rare widget', price: 52999.99, category: Category.Category2,
-        isAvailable: false, ingredients: ['platinum', 'gold', 'silver'], equivalents: []
-      }
+      new Product('Product 1', 'Description of Product 1', 56.69, Category.Category1, true, ['iron', 'plastic']),
+      new Product('Product 2', 'Description of Product 2', 123.15, Category.Category1, true, ['gum', 'aluminium'], ['iPhone XS']),
+      new Product('Product 3', 'Description of Product 3', 3, Category.Category1, true, ['wood', 'silk'], ['Product FX', 'Product SX']),
+      new Product('Product 4', 'Description of Product 4', 24.99, Category.Category1, false, ['platinum', 'gold', 'silver']),
+      new Product('Product 5', 'Description of Product 5', 28.54, Category.Category1, false, ['glass', 'coper']),
     ];
   }
 

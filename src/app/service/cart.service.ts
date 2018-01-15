@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
-import { Cart } from '../model/cart.model.';
+import { Cart } from '../model/cart.model';
 
 @Injectable()
 export class CartService {
 
-  private cart: Cart = new Cart;
+  private cart: Cart = new Cart();
 
   constructor() { }
 
