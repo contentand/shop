@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product.model';
 import { Cart } from '../model/cart.model';
+import { CartItem } from '../model/cart-item.model';
+import { CartUpdate } from '../model/cart-update.model';
 
 @Injectable()
 export class CartService {
@@ -14,16 +16,32 @@ export class CartService {
   }
 
   addToCart(product: Product): void {
-    this.cart.products.push(product);
+    this.cart.cartItems.push(new CartItem(product, 1));
+    this.calculateCart();
   }
 
-  removeFromCart(product: Product): void {
-    const index = this.cart.products.indexOf(product, 0);
+  update(updateInfo: CartUpdate): void {
+    const item: CartItem = updateInfo.cartItem;
+    item.quantity = updateInfo.newQuantity;
+    this.calculateCart();
+  }
+
+  removeFromCart(cartItem: CartItem): void {
+    const index = this.cart.cartItems.indexOf(cartItem, 0);
     if (index > -1) {
-      this.cart.products.splice(index, 1);
+      this.cart.cartItems.splice(index, 1);
+      this.calculateCart();
     } else {
-      alert('Cart has no product ' + product);
+      alert('Cart has no cartItem ' + cartItem);
     }
+  }
+
+  private calculateCart(): void {
+    let totalPrice = 0;
+    for (const item of this.cart.cartItems) {
+        totalPrice += item.getItemTotal();
+    }
+    this.cart.cartTotal = totalPrice;
   }
 
 }

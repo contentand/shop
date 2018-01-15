@@ -1,9 +1,13 @@
-import { Product } from './product.model';
+import { CartItem } from './cart-item.model';
 
 export class Cart {
 
-    constructor(public products?: Array<Product>) {
-        this.products = products || new Array<Product>();
+    constructor(
+        public cartItems?: Array<CartItem>,
+        public cartTotal?: number
+    ) {
+        this.cartItems = cartItems || new Array<CartItem>();
+        this.cartTotal = cartTotal || 0;
     }
 
 }

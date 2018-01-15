@@ -1,0 +1,5 @@
+<app-cart-item *ngFor='let cartItem of cartItems' 
+                [cartItem]='cartItem' 
+                (onItemRemove)='removeItem($event)'
+                (onQuantityUpdate)='updateQuantity(cartItem, $event)'>
+</app-cart-item>

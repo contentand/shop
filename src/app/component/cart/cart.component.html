@@ -1,6 +1,8 @@
-<div *ngIf='cart.products.length'>
+<div *ngIf='cart.cartItems.length'>
   <h2>Your Cart Contains:</h2>
   <hr/>
-  <app-product *ngFor='let product of cart.products' [product]='product' [isCartRemovalble]='true' (removeFromCart)='removeFromCart($event)'></app-product>
+  <app-cart-list [cartItems]='cart.cartItems' (onUpdateQuantity)='updateQuantity($event)' (onItemRemove)='remove($event)'></app-cart-list>
+  <hr/>
+  <h3>YOUR CART TOTAL IS: {{cart.cartTotal}}</h3>
   <hr/>
 </div>
