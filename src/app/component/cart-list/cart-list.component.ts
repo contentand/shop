@@ -1,19 +1,22 @@
-import { Component, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, 
-  Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
+  Input, Output, EventEmitter, ViewChildren, QueryList } from '@angular/core';
 import { CartItem } from '../../model/cart-item.model';
 import { CartUpdate } from '../../model/cart-update.model';
+import { CartItemComponent } from '../cart-item/cart-item.component';
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent implements OnInit, AfterContentInit, AfterContentChecked, 
+export class CartListComponent implements OnInit, AfterContentInit, AfterContentChecked,
 AfterViewInit, AfterViewChecked {
 
   @Input() cartItems: Array<CartItem>;
   @Output() onUpdateQuantity = new EventEmitter<CartUpdate>();
   @Output() onItemRemove = new EventEmitter<CartItem>();
+
+  @ViewChildren(CartItemComponent) cartItemViews: QueryList<CartItemComponent>;
 
   constructor() { }
 
@@ -29,7 +32,7 @@ AfterViewInit, AfterViewChecked {
   }
 
   ngAfterViewInit(): void {
-    console.log('View initialized!');
+    console.log('View initialized!', this.cartItemViews);
   }
 
   ngAfterViewChecked(): void {
