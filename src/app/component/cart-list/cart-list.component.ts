@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, 
+  Input, Output, EventEmitter } from '@angular/core';
 import { CartItem } from '../../model/cart-item.model';
 import { CartUpdate } from '../../model/cart-update.model';
 
@@ -7,7 +8,8 @@ import { CartUpdate } from '../../model/cart-update.model';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent implements OnInit {
+export class CartListComponent implements OnInit, AfterContentInit, AfterContentChecked, 
+AfterViewInit, AfterViewChecked {
 
   @Input() cartItems: Array<CartItem>;
   @Output() onUpdateQuantity = new EventEmitter<CartUpdate>();
@@ -16,6 +18,22 @@ export class CartListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterContentInit(): void {
+    console.log('Content initialized!');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('Content checked!');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('View initialized!');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('View checked!');
   }
 
   removeItem(item: CartItem): void  {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck, OnDestroy, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { CartItem } from '../../model/cart-item.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { CartItem } from '../../model/cart-item.model';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
-export class CartItemComponent implements OnInit {
+export class CartItemComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
 
   @Input() cartItem: CartItem;
   @Output() onQuantityUpdate = new EventEmitter<number>();
@@ -14,7 +14,20 @@ export class CartItemComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Changes identified!', changes);
+  }
+
   ngOnInit() {
+    console.log('Component initialized!', this.cartItem);
+  }
+
+  ngDoCheck(): void {
+    console.log('Do check triggered!', this.cartItem);
+  }
+
+  ngOnDestroy(): void {
+    console.log('Component destructed!');
   }
 
   updateQuantity(quantity: number): void {
