@@ -14,8 +14,6 @@ export class ProductComponent implements OnInit {
   product: Product;
   @Input('isPurchasable')
   isPurchasable: boolean;
-  @Input('isCartRemovalble')
-  isCartRemovalble: boolean;
 
   @Output() addToCart = new EventEmitter<Product>();
   @Output() removeFromCart = new EventEmitter<Product>();
@@ -28,6 +26,13 @@ export class ProductComponent implements OnInit {
     return {
       background: this.isPurchasable ? this.product.isAvailable ? 'rgba(241, 241, 241, 0.449)' : 'rgba(201, 201, 201, 0.459)'
                                      : 'rgba(221, 221, 221, 0.459)',
+    };
+  }
+
+  getClasses(): any {
+    return {
+      inOffer: this.isPurchasable,
+      inAvailability: this.product.isAvailable,
     };
   }
 
