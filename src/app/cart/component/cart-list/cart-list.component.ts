@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked,
   Input, Output, EventEmitter, ViewChildren, QueryList } from '@angular/core';
-import { CartItem } from '../../model/cart-item.model';
-import { CartUpdate } from '../../model/cart-update.model';
-import { CartItemComponent } from '../cart-item/cart-item.component';
+  import { CartItemComponent } from '../cart-item/cart-item.component';
+  import { CartUpdate } from '../../model/cart-update.model';
+  import { CartItem } from '../../model/cart-item.model';
 
 @Component({
   selector: 'app-cart-list',

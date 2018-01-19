@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <td><app-product-list></app-product-list></td>
-        <td><app-cart></app-cart></td>
+        <td><app-product-list (addToCart)='cart.addToCart($event)'></app-product-list></td>
+        <td><app-cart #cart></app-cart></td>
     </tr>
 </table>

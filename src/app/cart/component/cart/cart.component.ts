@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../service/cart.service';
+import { Product } from '../../../product/index';
 import { Cart } from '../../model/cart.model';
-import { Product } from '../../model/product.model';
 import { CartUpdate } from '../../model/cart-update.model';
 import { CartItem } from '../../model/cart-item.model';
+import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -26,6 +26,10 @@ export class CartComponent implements OnInit {
 
   remove(item: CartItem) {
     this.cartService.removeFromCart(item);
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 
 }

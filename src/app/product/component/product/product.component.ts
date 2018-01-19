@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output,  EventEmitter } from '@angular/core';
 import { Category } from '../../model/category.model';
 import { Product } from '../../model/product.model';
-import { CartService } from '../../service/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -10,13 +9,10 @@ import { CartService } from '../../service/cart.service';
 })
 export class ProductComponent implements OnInit {
 
-  @Input('product')
-  product: Product;
-  @Input('isPurchasable')
-  isPurchasable: boolean;
+  @Input() product: Product;
+  @Input() isPurchasable: boolean;
 
   @Output() addToCart = new EventEmitter<Product>();
-  @Output() removeFromCart = new EventEmitter<Product>();
 
   constructor() { }
 
@@ -40,9 +36,4 @@ export class ProductComponent implements OnInit {
     console.log('Product purchased!');
     this.addToCart.emit(this.product);
   }
-
-  onRemove(): void {
-    this.removeFromCart.emit(this.product);
-  }
-
 }
