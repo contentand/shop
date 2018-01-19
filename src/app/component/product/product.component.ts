@@ -24,6 +24,13 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() { }
 
+  getStyles(): any {
+    return {
+      background: this.isPurchasable ? this.product.isAvailable ? 'rgba(241, 241, 241, 0.449)' : 'rgba(201, 201, 201, 0.459)'
+                                     : 'rgba(221, 221, 221, 0.459)',
+    };
+  }
+
   onBuy(): void {
     console.log('Product purchased!');
     this.addToCart.emit(this.product);
