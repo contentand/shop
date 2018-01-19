@@ -10,6 +10,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { CartService } from './service/cart.service';
 import { CartItemComponent } from './component/cart-item/cart-item.component';
 import { CartListComponent } from './component/cart-list/cart-list.component';
+import { BeautifyDirective } from './directive/beautify.directive';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CartListComponent } from './component/cart-list/cart-list.component';
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    CartListComponent
+    CartListComponent,
+    BeautifyDirective
   ],
   imports: [
     BrowserModule
