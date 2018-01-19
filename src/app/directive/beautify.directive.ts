@@ -12,7 +12,10 @@ export class BeautifyDirective {
   @HostBinding('style.background') background: string;
   @HostListener('mouseenter') onMouseEnter() {
       this.defaultBackground = this.background;
-      this.background = '#' + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9);
+      this.background = 'rgba(' + Math.floor(Math.random() * 255)
+                          + ',' + Math.floor(Math.random() * 255)
+                          + ',' + Math.floor(Math.random() * 255)
+                          + ', 0.5)';
   }
   @HostListener('mouseleave') onMouseLeave() {
       this.background = this.defaultBackground;
