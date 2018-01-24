@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CartModule } from './cart/cart.module';
-import { ProductModule } from './product/product.module';
+import { CartModule } from './cart';
+import { ProductModule } from './product';
 
 
 @NgModule({

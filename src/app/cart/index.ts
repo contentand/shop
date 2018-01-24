@@ -6,3 +6,4 @@ export * from './model/cart-item.model';
 export * from './model/cart-update.model';
 export * from './model/cart.model';
 export * from './service/cart.service';
+export * from './cart.module';
