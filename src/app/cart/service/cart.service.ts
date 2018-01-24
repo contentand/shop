@@ -43,7 +43,7 @@ export class CartService {
         totalPrice += item.getItemTotal();
         totalQuantity += item.quantity;
     }
-    this.cart.cartTotal = totalPrice;
+    this.cart.totalPrice = totalPrice;
     this.cart.totalQuantity = totalQuantity;
   }
 
