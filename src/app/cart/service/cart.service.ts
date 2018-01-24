@@ -38,10 +38,13 @@ export class CartService {
 
   private calculateCart(): void {
     let totalPrice = 0;
+    let totalQuantity = 0;
     for (const item of this.cart.cartItems) {
         totalPrice += item.getItemTotal();
+        totalQuantity += item.quantity;
     }
     this.cart.cartTotal = totalPrice;
+    this.cart.totalQuantity = totalQuantity;
   }
 
 }

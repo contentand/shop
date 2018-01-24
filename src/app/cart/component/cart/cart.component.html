@@ -3,6 +3,6 @@
   <hr/>
   <app-cart-list [cartItems]='cart.cartItems' (onUpdateQuantity)='updateQuantity($event)' (onItemRemove)='remove($event)'></app-cart-list>
   <hr/>
-  <h3>YOUR CART TOTAL IS: {{cart.cartTotal}}</h3>
+  <h3>YOUR CART TOTAL IS: {{cart.cartTotal}} | ITEMS IN CART: {{cart.totalQuantity}}</h3>
   <hr/>
 </div>

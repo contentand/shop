@@ -30,8 +30,8 @@ export class CartItemComponent implements OnInit, OnChanges, DoCheck, OnDestroy 
     console.log('Component destructed!');
   }
 
-  updateQuantity(quantity: number): void {
-      this.onQuantityUpdate.emit(quantity);
+  updateQuantity(quantity: string): void {
+      this.onQuantityUpdate.emit(Number.parseInt(quantity));
   }
 
   removeCartItem(): void {
