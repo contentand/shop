@@ -15,8 +15,9 @@ export class CartService {
     return this.cart;
   }
 
-  addToCart(product: Product): void {
-    this.cart.cartItems.push(new CartItem(product, 1));
+  addToCart(product: Product, quantity?: number) {
+    quantity = quantity || 1;
+    this.cart.cartItems.push(new CartItem(product, quantity));
     this.calculateCart();
   }
 
