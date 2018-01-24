@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent, CartListComponent, CartItemComponent } from './component';
 import { CartService } from './service';
 import { ProductModule } from '../product';
-import { SharedModule, BeautifyDirective } from '../shared';
+import { SharedModule } from '../shared';
 
 @NgModule({
   imports: [
@@ -14,8 +14,7 @@ import { SharedModule, BeautifyDirective } from '../shared';
   declarations: [
     CartComponent,
     CartListComponent,
-    CartItemComponent,
-    BeautifyDirective
+    CartItemComponent
   ],
   providers: [
     CartService
