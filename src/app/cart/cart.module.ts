@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartComponent, CartListComponent, CartItemComponent, CartService, BeautifyDirective } from './';
+import { CartComponent, CartListComponent, CartItemComponent } from './component';
+import { CartService } from './service';
 import { ProductModule } from '../product';
-import { SharedModule } from '../shared';
+import { SharedModule, BeautifyDirective } from '../shared';
 
 @NgModule({
   imports: [

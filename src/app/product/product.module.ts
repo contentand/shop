@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductListComponent, ProductService, ProductComponent } from './index';
+import { ProductListComponent, ProductComponent } from './component';
+import { ProductService } from './service';
 import { SharedModule } from '../shared';
 
 @NgModule({
