@@ -37,6 +37,11 @@ export class CartService {
     }
   }
 
+  clearCart(): void {
+    this.cart.cartItems = new Array<CartItem>();
+    this.calculateCart();
+  }
+
   private calculateCart(): void {
     let totalPrice = 0;
     let totalQuantity = 0;
