@@ -7,7 +7,4 @@ export class CartItem {
         public quantity: number
     ) { }
 
-    getItemTotal(): number {
-        return this.productItem.price * this.quantity;
-    }
 }
