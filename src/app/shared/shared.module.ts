@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BeautifyDirective } from './directive';
+import { BeautifyDirective, SelectableDirective } from './directive';
 import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, GeneratorService } from './service';
 
 @NgModule({
@@ -9,6 +9,7 @@ import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, Genera
   ],
   declarations: [
     BeautifyDirective,
+    SelectableDirective,
   ],
   providers: [
     LocalStorageService,
@@ -16,7 +17,8 @@ import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, Genera
     {provide: RANDOM_STRING, useFactory: GeneratorService(4)}
   ],
   exports: [
-    BeautifyDirective
+    BeautifyDirective,
+    SelectableDirective
   ]
 })
 export class SharedModule { }
