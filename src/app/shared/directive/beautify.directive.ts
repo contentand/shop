@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, OnInit, Inject } from '@angular/core';
+import { Directive, HostBinding, HostListener, OnInit, Inject, Optional } from '@angular/core';
 import { ConstantsService, RANDOM_STRING } from '../service';
 
 @Directive({
@@ -10,16 +10,16 @@ export class BeautifyDirective implements OnInit {
   @HostBinding('style.background') background: string;
 
   constructor(
-    private constantsService: ConstantsService,
-    @Inject(RANDOM_STRING) private randomText: string
+    @Optional() private constantsService: ConstantsService,
+    @Inject(RANDOM_STRING) @Optional() private randomText: string
   ) { }
 
   ngOnInit(): void {
     console.log(
       `
-      Application: ${this.constantsService.getApplication()},
-      Version: ${this.constantsService.getVersion()},
-      Random: ${this.randomText}
+      Application: ${this.constantsService ? this.constantsService.getApplication() : 'UNKNOWN'},
+      Version: ${this.constantsService ? this.constantsService.getVersion() : 'UNKNOWN'},
+      Random: ${this.randomText ? this.randomText : 'NOT SET'}
       `
     );
   }
