@@ -1,5 +1,5 @@
-import { Directive, HostBinding, HostListener, OnInit } from '@angular/core';
-import { ConstantsService } from '../service';
+import { Directive, HostBinding, HostListener, OnInit, Inject } from '@angular/core';
+import { ConstantsService, RANDOM_STRING } from '../service';
 
 @Directive({
   selector: '[appBeautify]'
@@ -9,13 +9,17 @@ export class BeautifyDirective implements OnInit {
   private defaultBackground: string;
   @HostBinding('style.background') background: string;
 
-  constructor(private constantsService: ConstantsService) { }
+  constructor(
+    private constantsService: ConstantsService,
+    @Inject(RANDOM_STRING) private randomText: string
+  ) { }
 
   ngOnInit(): void {
     console.log(
       `
       Application: ${this.constantsService.getApplication()},
-      Version: ${this.constantsService.getVersion()}
+      Version: ${this.constantsService.getVersion()},
+      Random: ${this.randomText}
       `
     );
   }
