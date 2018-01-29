@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BeautifyDirective } from './directive';
-import { LocalStorageService } from './service';
+import { LocalStorageService, ConstantsService, Constants } from './service';
 
 @NgModule({
   imports: [
@@ -11,7 +11,8 @@ import { LocalStorageService } from './service';
     BeautifyDirective,
   ],
   providers: [
-    LocalStorageService
+    LocalStorageService,
+    {provide: ConstantsService, useValue: new ConstantsService(new Constants('Shop', '1.0.0'))}
   ],
   exports: [
     BeautifyDirective
