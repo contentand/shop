@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BeautifyDirective, SelectableDirective } from './directive';
 import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, GeneratorService } from './service';
+import { OrderByPipe } from './pipe';
 
 @NgModule({
   imports: [
@@ -10,6 +11,7 @@ import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, Genera
   declarations: [
     BeautifyDirective,
     SelectableDirective,
+    OrderByPipe,
   ],
   providers: [
     LocalStorageService,
@@ -18,7 +20,8 @@ import { LocalStorageService, ConstantsService, Constants, RANDOM_STRING, Genera
   ],
   exports: [
     BeautifyDirective,
-    SelectableDirective
+    SelectableDirective,
+    OrderByPipe
   ]
 })
 export class SharedModule { }

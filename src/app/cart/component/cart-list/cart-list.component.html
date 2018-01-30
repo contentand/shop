@@ -1,4 +1,4 @@
-<app-cart-item appBeautify *ngFor='let cartItem of cartItems' 
+<app-cart-item appBeautify *ngFor="let cartItem of cartItems | orderBy:'productItem.price':true"
                 [cartItem]='cartItem' 
                 (onItemRemove)='removeItem($event)'
                 (onQuantityUpdate)='updateQuantity(cartItem, $event)'>
