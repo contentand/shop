@@ -1,7 +1,7 @@
 <div appSelectable class="wrapper" [ngStyle]='getStyles()' [ngClass]='getClasses()'>
   <div>Name: {{product.name}}</div>
   <div>Description: {{product.description}}</div>
-  <div>Price: {{product.price}}</div>
+  <div>Price: {{product.price | currency: 'EUR':'symbol':'':'fr'}}</div>
   <div>Category: {{product.category}}</div>
   <div>Available: {{product.isAvailable}}</div>
   <br/>

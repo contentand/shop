@@ -4,7 +4,7 @@
   <app-cart-list [cartItems]='cart.cartItems' (onUpdateQuantity)='updateQuantity($event)' (onItemRemove)='remove($event)'></app-cart-list>
   <hr/>
   <h3>
-    <span>YOUR CART TOTAL IS: {{cart.totalPrice}}</span>
+    <span>YOUR CART TOTAL IS: {{cart.totalPrice | currency: 'EUR':'symbol':'':'fr'}}</span>
     <span> | </span>
     <span>ITEMS IN CART: {{cart.totalQuantity}}</span>
     <span> | </span>
