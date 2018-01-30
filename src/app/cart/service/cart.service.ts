@@ -62,6 +62,7 @@ export class CartService {
     }
     this.cart.totalPrice = totalPrice;
     this.cart.totalQuantity = totalQuantity;
+    this.cart.lastUpdated = new Date();
   }
 
   private updateCartStorage(): void {

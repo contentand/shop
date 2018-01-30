@@ -8,6 +8,9 @@
     <span> | </span>
     <span>ITEMS IN CART: {{cart.totalQuantity}}</span>
     <span> | </span>
+    <br/>
+    <span>LAST UPDATED: {{cart.lastUpdated | date:'shortDate':'':'fr'}}</span>
+    <span> | </span>
     <button (click)='clearCart()'>CLEAR CART</button>
   </h3>
   <hr/>
