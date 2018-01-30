@@ -9,7 +9,7 @@ import { ProductService } from '../../service';
 })
 export class ProductListComponent implements OnInit {
 
-  private products: Product[];
+  products: Product[];
 
   @Output() addToCart = new EventEmitter<Product>();
 
