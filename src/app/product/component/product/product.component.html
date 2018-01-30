@@ -2,7 +2,7 @@
   <div>Name: {{product.name}}</div>
   <div>Description: {{product.description}}</div>
   <div>Price: {{product.price | currency: 'EUR':'symbol':'':'fr'}}</div>
-  <div>Category: {{product.category}}</div>
+  <div>Category: {{product.category | uppercase}}</div>
   <div>Available: {{product.isAvailable}}</div>
   <br/>
   <b *ngIf='product.ingredients.length'>Ingredients:</b>
