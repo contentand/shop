@@ -8,6 +8,7 @@ import { ProductService, StockService } from './service';
     CommonModule
   ],
   providers: [ProductService, StockService],
-  declarations: [ProductPageComponent, ProductComponent]
+  declarations: [ProductPageComponent, ProductComponent],
+  exports: [ProductComponent]
 })
 export class ProductModule { }

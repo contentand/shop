@@ -2,26 +2,30 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserModule, LoginPageComponent } from './user';
 import { ProductModule, ProductPageComponent } from './product';
+import { AdminModule, AdminPageComponent } from './admin';
 
 const routes: Routes = [
     {
-        path: '',
-        component: ProductPageComponent
+      path: '',
+      component: ProductPageComponent
     },
     {
       path: 'login',
       component: LoginPageComponent
-    }
+    },
+    {
+      path: 'admin',
+      component: AdminPageComponent
+    },
 ];
-
-export let appRouterComponents = [LoginPageComponent];
 
 @NgModule({
     imports: [
       UserModule,
       ProductModule,
+      AdminModule,
       RouterModule.forRoot(routes)
     ],
-    exports: [RouterModule, UserModule, ProductModule]
+    exports: [RouterModule, UserModule, ProductModule, AdminModule]
 })
 export class AppRoutingModule {}
