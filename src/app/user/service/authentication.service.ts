@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User, UserService } from '../index';
+import { User } from '../model';
+import { UserService } from './user.service';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { map } from 'rxjs/operators';
@@ -12,14 +13,24 @@ export class AuthenticationService {
     constructor(private userService: UserService) { }
 
     isAuthenticated(): Observable<boolean> {
-        return of(this.currentUser && true);
+        return of(this.currentUser ? true : false);
     }
 
     authenticate(login: string, password: string): Observable<boolean> {
         return this.userService.getUser(login)
             .pipe(
-                map(user => user && user.password === password)
-            );
+                map((user, number) => {
+                    if (user && user.password === password) {
+                        this.currentUser = user;
+                        return true;
+                    }
+                    return false;
+                }
+            ));
+    }
+
+    unauthenticate() {
+        this.currentUser = null;
     }
 
     getAuthenticated(): Observable<User | null> {

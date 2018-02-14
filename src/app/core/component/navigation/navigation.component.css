@@ -1,0 +1,19 @@
+.active {
+    background: #CCC;
+    font-weight: bold;
+}
+
+ul {
+    background: #EEE;
+    display: block;
+}
+
+li {
+    background: #DDD;
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px 20px;
+}

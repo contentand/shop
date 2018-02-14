@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../../core';
-import { User } from '../index';
+import { User } from '../model';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 

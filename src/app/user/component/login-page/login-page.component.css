@@ -1,0 +1,18 @@
+form {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: inline-block;
+    margin-bottom: 1px;
+}
+
+.form-group input {
+    display: block;
+}
