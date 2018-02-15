@@ -5,6 +5,7 @@ export class Book {
         public author: string,
         public description: string,
         public keywords: string,
+        public price: number,
         public stock?: number
     ) {
         this.stock = stock || 0;

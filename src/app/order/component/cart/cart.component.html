@@ -1,0 +1,30 @@
+<h2>Cart</h2>
+<hr/>
+<div *ngIf='!cartService.getCart().items.length'>
+  <p>
+    <b>Your cart is empty.</b>
+  </p>
+  <hr/>
+</div>
+<app-product *ngFor='let item of cartService.getCart().items' [book]='item.book'>
+  <div additional-info>
+    <div>
+      <b>Quantity:</b>
+      <span>{{item.quantity}}</span>
+    </div>
+  </div> 
+    <div actions>
+      <button (click)='cartService.remove(item.book, 1)' [disabled]='!item.quantity'>Reduce Quantity</button>
+      <button (click)='cartService.add(item.book, 1)' 
+              [disabled]='!(stockService.getStockForSku(item.book.sku) | async)'>Increase Quantity</button>
+      <button (click)='cartService.deleteFromCart(item)'>DELETE</button>
+      <hr/>
+    </div>
+</app-product>
+<button *ngIf="authenticationService.isAuthenticated() | async; else pleaseLogin"
+        [disabled]="!cartService.getCart().items.length"
+        (click)="cartService.placeOrder()">PLACE ORDER</button>
+<ng-template #pleaseLogin>
+  <a routerLink="/login">PLEASE LOGIN TO PLACE ORDER</a>
+</ng-template>
+<h2>CART TOTAL: {{cartService.getCart().totalPrice}}</h2>

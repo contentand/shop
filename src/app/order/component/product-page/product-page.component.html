@@ -1,3 +1,5 @@
+<h2>Catalogue</h2>
+<hr/>
 <app-product *ngFor='let book of productService.getBooks() | async' [book]='book'>
   <div additional-info>
     <div>
@@ -6,7 +8,8 @@
     </div>
   </div> 
    <div actions>
-     <button *ngIf='book.stock'>Add to Cart</button>
+     <button *ngIf='book.stock' (click)='cartService.add(book, 1)'>Add to Cart</button>
      <button *ngIf='!book.stock' disabled>Out of Stock</button>
+     <hr/>
    </div>
 </app-product>

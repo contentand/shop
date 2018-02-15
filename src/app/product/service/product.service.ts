@@ -25,6 +25,7 @@ export class ProductService {
       toModify.author = book.author;
       toModify.description = book.description;
       toModify.keywords = book.keywords;
+      toModify.price = book.price;
     } else {
       book.sku = Math.floor(Math.random() * Math.pow(2, 64));
       books.push(book);
@@ -56,14 +57,15 @@ export class ProductService {
   private initializeData(): void {
     if (!this.localStorageService.getItem('books')) {
       this.localStorageService.setItem('books', [
-        new Book(1, 'The Adolescent', 'Fyodor Dostoyevsky', 'A book about young man.', 'classics, novel'),
+        new Book(1, 'The Adolescent', 'Fyodor Dostoyevsky',
+          'A book about young man.', 'classics, novel', 24),
         new Book(2, 'The Idiot', 'Fyodor Dostoyevsky',
           'A book on a unique individual at the centre of the conflicts, desires, passions and egoism of worldly society.',
-          'classics, novel, gambling'),
+          'classics, novel, gambling', 23),
         new Book(3, 'The Brothers Karamazov', 'Fyodor Dostoyevsky',
-          'A book on ethical debates of God, free will, and morality.', 'classics, novel, philosophy'),
+          'A book on ethical debates of God, free will, and morality.', 'classics, novel, philosophy', 25),
         new Book(4, 'Crime and Punishment', 'Fyodor Dostoyevsky', 'A book about the mental anguish and moral dilemmas.',
-          'classics, novel'),
+          'classics, novel', 16),
       ]);
     }
   }

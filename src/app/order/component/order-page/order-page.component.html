@@ -1,0 +1,3 @@
+<h2>Your Orders</h2>
+<hr/>
+<app-order-item *ngFor="let order of orderService.getOrders() | async" [order]="order"></app-order-item>

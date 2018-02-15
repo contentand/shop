@@ -21,7 +21,7 @@ export class EditProductPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.book = new Book(null, '', '', '', '');
+    this.book = new Book(null, '', '', '', '', 0);
 
     this.route.paramMap
       .pipe(

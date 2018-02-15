@@ -1,0 +1,12 @@
+<div class='wrapper'>
+  <h2>ORDER NUMBER: {{order.id}}</h2>
+  <app-product *ngFor='let item of order.items' [book]='item.book'>
+    <div additional-info>
+      <div>
+        <b>Quantity:</b>
+        <span>{{item.quantity}}</span>
+      </div>
+    </div> 
+  </app-product>
+  <h2>ORDER TOTAL: {{order.totalPrice}}</h2>
+</div>

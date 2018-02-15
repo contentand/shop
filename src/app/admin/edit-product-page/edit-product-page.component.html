@@ -33,6 +33,15 @@
           required
           [(ngModel)]="book.keywords">
     </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number"
+          min="0"
+          id="price" name="price"
+          placeholder="Price"
+          required
+          [(ngModel)]="book.price">
+    </div>
 </form>
 <button (click)='goBack()'>CANCEL</button>
 <button (click)='doDelete()' *ngIf='book.sku'>DELETE</button>

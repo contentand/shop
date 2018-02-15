@@ -41,6 +41,17 @@ export class StockService {
     }
   }
 
+  increaseStock(sku: number, quantity: number): void {
+    const stocks = this.getStocks();
+    for (const stock of stocks) {
+      if (+stock.sku === sku) {
+        stock.stock += quantity;
+        this.updateStocks(stocks);
+        return;
+      }
+    }
+  }
+
   getStockForSku(sku: number): Observable<number> {
     for (const stock of this.getStocks()) {
       if (+stock.sku === sku) {
