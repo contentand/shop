@@ -1,4 +1,7 @@
-<h2>Stock Levels</h2>
+<h2>Stock</h2>
+<hr/>
+<button (click)='doAddNew()'>ADD NEW PRODUCT</button>
+<hr/>
 <app-product *ngFor='let book of productService.getBooks() | async' [book]='book'>
   <div additional-info>
     <div>
@@ -9,5 +12,6 @@
     <div actions>
       <button (click)='stockService.reduceStock(book.sku, 1)' [disabled]='!book.stock'>Reduce Stock</button>
       <button (click)='stockService.addStock(book.sku, 1)'>Add Stock</button>
+      <button (click)='edit(book.sku)'>EDIT</button>
     </div>
 </app-product>

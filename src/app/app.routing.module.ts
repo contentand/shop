@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserModule, LoginPageComponent } from './user';
 import { ProductModule, ProductPageComponent } from './product';
-import { AdminModule, AdminPageComponent } from './admin';
+import { AdminModule, AdminPageComponent, EditProductPageComponent } from './admin';
 
 const routes: Routes = [
     {
@@ -15,7 +15,25 @@ const routes: Routes = [
     },
     {
       path: 'admin',
-      component: AdminPageComponent
+      children: [
+          {
+              path: 'product',
+              children: [
+                  {
+                      path: 'stock',
+                      component: AdminPageComponent
+                  },
+                  {
+                      path: 'edit/:id',
+                      component: EditProductPageComponent
+                  },
+                  {
+                      path: 'new',
+                      component: EditProductPageComponent
+                  }
+              ]
+          },
+      ]
     },
 ];
 
