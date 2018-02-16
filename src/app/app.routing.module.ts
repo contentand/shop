@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserModule, LoginPageComponent } from './user';
+import { UserModule, LoginPageComponent, AuthenticatedUserGuard } from './user';
 import { ProductModule } from './product';
 import { OrderModule, CartComponent, ProductPageComponent, OrderPageComponent } from './order';
 
@@ -19,7 +19,8 @@ const routes: Routes = [
     },
     {
         path: 'orders',
-        component: OrderPageComponent
+        component: OrderPageComponent,
+        canActivate: [AuthenticatedUserGuard]
     },
     {
         path: 'admin',

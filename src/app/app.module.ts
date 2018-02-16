@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core';
 import { AppRoutingModule } from './app.routing.module';
-import { AuthenticationService } from './user';
+import { AuthenticationService, AuthenticatedUserGuard } from './user';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { AuthenticationService } from './user';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthenticatedUserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
