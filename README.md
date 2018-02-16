@@ -1,6 +1,7 @@
 # Book Shop
 
 Regular user credentials : daniil / password
+
 Admin user credentials : admin / password
 
 Additional features:
