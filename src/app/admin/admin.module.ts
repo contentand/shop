@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ProductModule } from '../product';
-import { EditProductPageComponent } from './edit-product-page/edit-product-page.component';
+import { AdminRoutingModule, adminRouterComponents } from './admin.routing.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ProductModule
+    ProductModule,
+    AdminRoutingModule
   ],
-  declarations: [AdminPageComponent, EditProductPageComponent],
-  exports: [AdminPageComponent, EditProductPageComponent]
+  declarations: [adminRouterComponents],
+  exports: []
 })
 export class AdminModule { }
