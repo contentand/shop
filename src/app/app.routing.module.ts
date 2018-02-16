@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserModule, LoginPageComponent, AuthenticatedUserGuard } from './user';
+import { UserModule, LoginPageComponent, AuthenticatedUserGuard, AdministratorGuard } from './user';
 import { ProductModule } from './product';
 import { OrderModule, CartComponent, ProductPageComponent, OrderPageComponent } from './order';
 
@@ -24,7 +24,8 @@ const routes: Routes = [
     },
     {
         path: 'admin',
-        loadChildren: 'app/admin/admin.module#AdminModule'
+        loadChildren: 'app/admin/admin.module#AdminModule',
+        canActivate: [AdministratorGuard]
     }
 ];
 
