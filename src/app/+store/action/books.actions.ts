@@ -35,7 +35,7 @@ export class GetBooksError implements Action {
 
 export class GetBook implements Action {
     readonly type = BooksActionTypes.GET_BOOK;
-    constructor(public payload: string | number) { }
+    constructor(public payload: number) { }
 }
 
 export class GetBookSuccess implements Action {

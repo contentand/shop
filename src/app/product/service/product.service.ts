@@ -17,7 +17,7 @@ export class ProductService {
     this.initializeData();
   }
 
-  saveBook(book: Book): void {
+  saveBook(book: Book): Observable<any> {
     const books = <Book[]>this.localStorageService.getItem('books');
     if (book.sku) {
       const toModify = books.find(current => current.sku === book.sku);
@@ -31,9 +31,10 @@ export class ProductService {
       books.push(book);
     }
     this.localStorageService.setItem('books', books);
+    return of({});
   }
 
-  removeBook(sku: number): void {
+  removeBook(sku: number): Observable<any> {
     const books = <Book[]>this.localStorageService.getItem('books');
     for (let x = 0; x < books.length; x++) {
       if (books[x].sku === +sku) {
@@ -42,6 +43,7 @@ export class ProductService {
       }
     }
     this.localStorageService.setItem('books', books);
+    return of({});
   }
 
   getBook(sku: number): Observable<Book> {
