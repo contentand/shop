@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs/Observable';
 import { Action } from '@ngrx/store';
+
+import { Observable } from 'rxjs/Observable';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+
 import { GetBooks, BooksActionTypes, GetBooksSuccess, GetBooksError, GetBook,
     GetBookSuccess, GetBookError, CreateBook, CreateBookSuccess, CreateBookError,
     UpdateBook, UpdateBookSuccess, UpdateBookError, DeleteBook, DeleteBookSuccess,
     DeleteBookError } from '../action/books.actions';
-import { switchMap, map, catchError } from 'rxjs/operators';
-import { ProductService } from '../../product';
-import { of } from 'rxjs/observable/of';
+
+import { ProductService } from '../../product/service';
+
 
 @Injectable()
 export class BookEffects {

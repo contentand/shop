@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { ApplicationState, GetBooks, BooksState } from '../../../+store';
 import { ProductService } from '../../../product';
 import { CartService } from '../../service';
 
@@ -10,12 +13,16 @@ import { CartService } from '../../service';
 })
 export class ProductPageComponent implements OnInit {
 
+  booksState$: Store<BooksState>;
+
   constructor(
-    public productService: ProductService,
+    private store: Store<ApplicationState>,
     public cartService: CartService
   ) { }
 
   ngOnInit() {
+    this.booksState$ = this.store.select('books');
+    this.store.dispatch(new GetBooks());
   }
 
 }

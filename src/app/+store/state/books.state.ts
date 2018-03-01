@@ -1,4 +1,4 @@
-import { Book } from '../../product';
+import { Book } from '../../product/model';
 
 export interface BooksState {
     data: ReadonlyArray<Book>;
@@ -11,7 +11,7 @@ export interface BooksState {
 
 export const initialBookState: BooksState = {
     data: [],
-    currentBook: null,
+    currentBook: new Book(null, '', '', '', '', 0),
     loading: false,
     loaded: false,
     error: null

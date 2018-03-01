@@ -1,6 +1,6 @@
 import { BooksState, initialBookState } from '../state/books.state';
-import { BooksActions, BooksActionTypes } from '..';
-import { Book } from '../../product';
+import { BooksActions, BooksActionTypes } from '../action';
+import { Book } from '../../product/model';
 
 export function booksReducer(
     state = initialBookState,
@@ -39,7 +39,7 @@ export function booksReducer(
         case BooksActionTypes.GET_BOOK: {
             return {
                 ... state,
-                currentBook: null,
+                currentBook: new Book(null, '', '', '', '', 0),
                 loading: true
             };
         }

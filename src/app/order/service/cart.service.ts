@@ -4,6 +4,8 @@ import { Cart } from '../model/cart.model';
 import { Book, StockService } from '../../product';
 import { CartItem } from '../model/cart-item.model';
 import { OrderService } from './order.service';
+import { Store } from '@ngrx/store';
+import { ApplicationState, GetBooks } from '../../+store';
 
 @Injectable()
 export class CartService {
@@ -11,6 +13,7 @@ export class CartService {
   private cart: Cart;
 
   constructor(
+    private store: Store<ApplicationState>,
     private stockService: StockService,
     private orderService: OrderService
   ) {
@@ -80,6 +83,7 @@ export class CartService {
       price += +item.book.price * +item.quantity;
     }
     this.cart.totalPrice = price;
+    this.store.dispatch(new GetBooks());
   }
 
 }

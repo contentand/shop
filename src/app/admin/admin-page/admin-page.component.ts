@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ProductService, StockService } from '../../product';
+import { StockService } from '../../product';
+import { Store } from '@ngrx/store';
+import { ApplicationState, BooksState, GetBooks } from '../../+store';
 
 @Component({
   selector: 'app-admin-page',
@@ -10,13 +12,17 @@ import { ProductService, StockService } from '../../product';
 })
 export class AdminPageComponent implements OnInit {
 
+  booksState$: Store<BooksState>;
+
   constructor(
     private router: Router,
-    public productService: ProductService,
+    private store: Store<ApplicationState>,
     public stockService: StockService
   ) { }
 
   ngOnInit() {
+    this.booksState$ = this.store.select('books');
+    this.store.dispatch(new GetBooks());
   }
 
   edit(sku: number) {

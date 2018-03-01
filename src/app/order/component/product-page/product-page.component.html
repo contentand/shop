@@ -1,6 +1,6 @@
 <h2>Catalogue</h2>
 <hr/>
-<app-product *ngFor='let book of productService.getBooks() | async' [book]='book'>
+<app-product *ngFor='let book of (booksState$ | async).data' [book]='book'>
   <div additional-info>
     <div>
       <b>Stock:</b>
